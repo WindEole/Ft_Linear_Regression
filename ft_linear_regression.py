@@ -53,8 +53,8 @@ def evaluate_model(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     print("MSE évalue la différence entre valeurs réelles et prédites.")
     mse = mean_squared_error(y_true, y_pred)
     print(f"\033[91mMSE: {mse}\033[0m. Plus cet indicateur est petit, mieux "
-        " c'est. Ici, il est très grand, car il y a des valeurs aberrantes "
-        " dans le dataset.")
+          "c'est. Ici, il est très grand, car il y a des valeurs aberrantes "
+          "dans le dataset.")
 
     # Mean Absolute Error
     print("\033[96m\nDeuxième indicateur : MAE = mean absolute error :\033[0m")
@@ -65,16 +65,16 @@ def evaluate_model(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 
     # R-squared score
     print("\033[96m\nTroisième indicateur : R-squared Score (R²) :\033[0m"
-        "R² évalue combien de variance des data est capturée par le modèle."
-        "R² ~ 1 -> le modèle s'ajuste bien aux données,"
-        "R² ~ 0 -> le modèle n'explique presque rien.")
+          "R² évalue combien de variance des data est capturée par le modèle."
+          "\nR² ~ 1 -> le modèle s'ajuste bien aux données,"
+          "\nR² ~ 0 -> le modèle n'explique presque rien.")
     ss_total = np.sum((y_true - np.mean(y_true)) ** 2)
     ss_res = np.sum((y_true - y_pred) ** 2)
     r2 = 1 - (ss_res / ss_total)
     print(f"La précision de notre modèle est : R-squared (R²): {r2}")
     r2_round = round(r2, 4)
     print(
-        f"donc \033[91m{r2_round * 100}%\033[0m des variations des prix est "
+        f"donc \033[91m{r2_round * 100}%\033[0m des variations de prix est "
         "prise en compte.",
     )
 
@@ -138,13 +138,13 @@ def gradient_descent(
         grad_a = - (2 / m) * sum(x * (y - y_predicted))
         grad_b = - (2 / m) * sum(y - y_predicted)
 
-        # Updating coeff a and b 
+        # Updating coeff a and b
         current_a = current_a - (learning_rate * grad_a)
         current_b = current_b - (learning_rate * grad_b)
 
         # Printing parameters for every 100th iteration
         if i % 100 == 0:
-            # print(f"Iteration {i}: tetha0 = {current_b}, tetha1 = {current_a},"
+            # print(f"Iteration {i}: t0 = {current_b}, t1 = {current_a},"
             #       f" cost = {current_cost}")
             plt.cla()  # Efface le graphe précédent
             plt.scatter(x, y, color="blue", label="True Data")  # Nuage de pts
@@ -229,7 +229,8 @@ def main() -> None:
         data, learning_rate, iterations, stop_threshold,
         )
     print(
-        f"\033[91mTrained parameters: tetha0 = {tetha0}, tetha1 = {tetha1}\033[0m",
+        f"\033[91mTrained parameters: tetha0 = {tetha0}, "
+        f"tetha1 = {tetha1}\033[0m",
     )
 
     # On crée un tuple pour les 2 coeff
