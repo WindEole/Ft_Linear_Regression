@@ -1,8 +1,11 @@
-import json
+"""prediction script.
 
-# Programme qui prédit le prix d'une voiture en fonction de son kilométrage.
-# Entrée : kilométrage
-# Sortie : le prix.
+Ce programme prédit le prix d'une voiture en fonction de son kilométrage
+Entrée : kilométrage.
+Sortie : le prix.
+"""
+
+import json
 
 
 class Tetha:
@@ -22,7 +25,7 @@ def price_prediction(mileage: int) -> int:
     """Predict the price of a car with a given mileage."""
     # estimatePrice(mileage) = θ0 + (θ1 ∗ mileage)
     price = Tetha.tetha0 + (Tetha.tetha1 * mileage)
-    return price
+    return int(price)
 
 
 def main():
@@ -37,7 +40,7 @@ def main():
     try:
         mileage = int(mileage)
     except ValueError:
-        print("Invalid mileage input. Please enter a number.")
+        print("Invalid mileage input. Please enter an integer number.")
         return
 
     # Affichage
@@ -46,6 +49,7 @@ def main():
     # 3) Calcul du prix -> function
     price = price_prediction(mileage)
     print(f"A car with {mileage} miles is worth {price} dollars.")
+
 
 if __name__ == "__main__":
     main()
