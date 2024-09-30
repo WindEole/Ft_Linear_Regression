@@ -77,13 +77,6 @@ def evaluate_model(y_true: np.ndarray, y_pred: np.ndarray) -> float:
         f"donc \033[91m{r2_round * 100}%\033[0m des variations de prix est "
         "prise en compte.",
     )
-
-    # print("\033[96m\nConclusion :\033[0m")
-    # print("Ces trois indicateurs montrent que le modèle est relativement "
-    #       "efficace dans le cadre d'une régression linéaire à partir de "
-    #       "données assez éparses. Le modèle pourrait être affiné soit en "
-    #       "ajoutant d'autres critères comme l'âge du véhicule ou la marque, "
-    #       "soit en passant à un autre modèle de régression (non linéaire)")
     return r2
 
 
@@ -221,7 +214,7 @@ def main() -> None:
 
     # Parametres de la descente de gradient
     learning_rate = 0.0001
-    iterations = 30000  # donne une précision de 73.26% | 30000 -> 73.3%
+    iterations = 20000  # donne une précision de 73.26% | 30000 -> 73.3%
     stop_threshold = 0.000001
 
     # y = b + a * x => b = tetha0 (biais) / a = tetha1 (slope ou weight)
